@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', views.welcome, name="welcome"),
     url(r'^index/', views.home, name="home"),
     url(r'^profile/\d+', views.profile, name="profile"),
+    url(r'^search/', views.search, name="search_results"),
 ]
