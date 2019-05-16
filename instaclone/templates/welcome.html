@@ -1,9 +1,17 @@
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>Welcome to InstaClone</title>
+        {% block styles %}
+            {% bootstrap_css %}
+        {% endblock %}
     </head>
     <body>
-        <h1>Welcome to InstaClone</h1>
+        {% block scripts %}
+            {% bootstrap_javascript %}
+        {% endblock %}
+        <h1 class="text-center">Welcome to InstaClone</h1>
+        <a href="#">Enter</a>
     </body>
 </html>
