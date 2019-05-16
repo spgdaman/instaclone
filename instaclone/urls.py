@@ -20,4 +20,6 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.welcome, name="welcome"),
+    url(r'^index/', views.home, name="home"),
+    url(r'^profile/\d+', views.profile, name="profile"),
 ]
