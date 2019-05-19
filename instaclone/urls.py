@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^logout/', viewauth.logout, {"next_page":'/index'}),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^new/post$', views.new_post, name="new_post")
 ]
