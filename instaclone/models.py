@@ -1,7 +1,7 @@
 from django.db import models
 
 class Image(models.Model):
-    #image=
+    image=models.ImageField(upload_to='media/')
     image_name=models.CharField(max_length=30)
     image_caption=models.CharField(max_length=60)
     likes=models.IntegerField()
@@ -27,7 +27,7 @@ class Image(models.Model):
         return image_updated
 
 class Profile(models.Model):
-    #profile_photo=models.ImageField(upload_to='images/')
+    profile_photo=models.ImageField(upload_to='images/')
     bio=models.CharField(max_length=60)
 
     # Profile model methods
