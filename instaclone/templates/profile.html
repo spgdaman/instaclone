@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
+    {% for post in posts %}
     <div class="row">
         <div class="card mx-auto">
+            <img class="rounded-pill" src="{{post.profile_photo.url}}" alt="{{post.profile_photo}}">
             <div class="card-body">
-                <p class="card-text">{{}}</p>
+                <p class="card-text">{{post.bio}}</p>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
