@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
+from django.contrib.auth import views as viewauth
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^profile/\d+', views.profile, name="profile"),
     url(r'^search/', views.search, name="search_results"),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^logout/', viewauth.logout, {"next_page":'/'}),
 ]
