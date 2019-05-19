@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import NewImageForm
 from .models import Image,Profile
@@ -30,7 +30,7 @@ def new_post(request):
             article=form.save(commit=False)
             article.editor=current_user
             article.save()
-        return redirect('home.html')
+        return redirect('home')
     else:
         form=NewImageForm()
     return render(request,'newpost.html',{'form':form})
