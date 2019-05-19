@@ -5,7 +5,7 @@ class Image(models.Model):
     image_name=models.CharField(max_length=30)
     image_caption=models.CharField(max_length=60)
     likes=models.IntegerField()
-    comments=models.CharField()
+    comments=models.CharField(max_length=120)
 
     # Foreign key
     profile = models.ForeignKey('Profile')
