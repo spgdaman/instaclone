@@ -27,10 +27,24 @@ def new_post(request):
     if request.method == 'POST':
         form = NewImageForm(request.POST, request.FILES)
         if form.is_valid():
+            post=form.save(commit=False)
+            post.user=current_user
+            post.save()
+        return redirect('home')
+    else:
+        form=NewImageForm()
+    return render(request,'newpost.html',{'form':form})
+
+@login_required(login_url='accounts/login')
+def update_profile(request):
+    current_user=request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST, request.FILES)
+        if form.is_valid():
             article=form.save(commit=False)
             article.editor=current_user
             article.save()
         return redirect('home')
     else:
         form=NewImageForm()
-    return render(request,'newpost.html',{'form':form})
+    return render(request,'updateprofile.html',{"forma":form})

@@ -31,7 +31,7 @@ class Image(models.Model):
 
 class Profile(models.Model):
     profile_photo=models.ImageField(upload_to='images/')
-    bio=models.CharField(max_length=60)
+    bio=HTMLField()
 
     # Profile model methods
     @classmethod
