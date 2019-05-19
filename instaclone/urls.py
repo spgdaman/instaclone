@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^profile/\d+', views.profile, name="profile"),
     url(r'^search/', views.search, name="search_results"),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/', viewauth.logout, {"next_page":'/'}),
+    url(r'^logout/', viewauth.logout, {"next_page":'/index'}),
 ]

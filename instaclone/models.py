@@ -1,14 +1,17 @@
 from django.db import models
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 class Image(models.Model):
     image=models.ImageField(upload_to='media/')
     image_name=models.CharField(max_length=30)
-    image_caption=models.CharField(max_length=60)
+    image_caption=HTMLField()
     likes=models.IntegerField()
     comments=models.CharField(max_length=120)
 
     # Foreign key
     profile = models.ForeignKey('Profile')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # Image model methods
     @classmethod
