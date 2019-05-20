@@ -4,10 +4,13 @@
     {% for profile in profile %}
     <div class="row">
         <div class="card mx-auto">
-            <img class="rounded-pill" src="{{profile.profile_photo.url}}" alt="{{profile.profile_photo}}">
+            <div class="card-header mx-auto">
+                <img class="rounded-pill mx-auto" src="{{profile.profile_photo.url}}" alt="{{profile.profile_photo}}" style="border-radius:50%; width:150px; height:150px;">
+            </div>
+            
             <div class="card-body">
                 <h5>{{profile.bio}}</h5>
-                <h3>{{user.profile.id}}</h3>
+                <div>{{profile.bio}}</div>
             </div>
         </div>
     </div>
