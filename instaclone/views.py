@@ -38,6 +38,11 @@ def new_post(request):
     return render(request,'newpost.html',{'form':form})
 
 @login_required(login_url='accounts/login')
+def show_post(request,post_id):
+    post=Image.objects.filter(id=post_id)
+    return render(request,'post.html',{"post":post})
+
+@login_required(login_url='accounts/login')
 def update_profile(request):
     current_user=request.user
     if request.method == 'POST':

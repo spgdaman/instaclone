@@ -5,7 +5,7 @@
     <div class="row">
         <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 mx-auto" style="font-family: 'Open Sans', sans-serif; padding:0;">
             <div class="card-header px-0 py-0">
-                <img class="card-img-top" src="{{post.image.url}}" alt="{{post.image_name}}">
+                <a href="{% url 'show_post' post.id %}"><img class="card-img-top" src="{{post.image.url}}" alt="{{post.image_name}}"></a>
             </div>
 
             <div class="card-body py-1">
