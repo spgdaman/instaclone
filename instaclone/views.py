@@ -59,4 +59,5 @@ def update_profile(request):
 @login_required(login_url='accounts/login')
 def profile(request,profile_id):
     profile=Profile.objects.filter(id=profile_id)
-    return render(request,'profile.html',{"profile":profile})
+    images=Image.objects.filter(profile=profile_id)
+    return render(request,'profile.html',{"profile":profile,"images":images})
