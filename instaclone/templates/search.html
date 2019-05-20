@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1 class="text-center">I am the search results page</h1>
+<div class="container">
+    {% if images %}
+        {% for message in message %}
+            <h1>{{message.message}}</h1>
+        {% endfor %}
+    {% endif %}
+    {% for image in images %}
+    <div class="row">
+        <h3 class="mx-auto"><a href="#">{{image.image_name}}</a></h3>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

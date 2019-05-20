@@ -14,7 +14,14 @@ def home(request):
 
 @login_required(login_url='/accounts/login')
 def search(request):
-    return render(request,'search.html')
+    if 'image' in request.GET and request.GET['image']:
+        search_term=request.GET.get('image')
+        searched_images=Image.objects.filter(image_name__icontains=search_term)
+        message=f"{search_term}"
+        return render(request,'search.html',{"message":message,"images":search_term})
+    else:
+        message="Please enter a valid search item"
+    return render(request,'search.html',{"message":message})
 
 @login_required(login_url='accounts/login')
 def new_post(request):
