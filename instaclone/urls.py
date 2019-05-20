@@ -24,13 +24,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.welcome, name="welcome"),
     url(r'^index/', views.home, name="home"),
-    url(r'^profile/\d+', views.profile, name="profile"),
+    url(r'^profile/(\d+)', views.profile, name="profile"),
     url(r'^search/', views.search, name="search_results"),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^logout/', viewauth.logout, {"next_page":'/index'}),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^new/post$', views.new_post, name="new_post"),
-    url(r'^update/profile$', views.update_profile, name="update_profile"),
+    url(r'^update/profile/$', views.update_profile, name="update_profile"),
 ]
 
 if settings.DEBUG:

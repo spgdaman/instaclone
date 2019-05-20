@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-    {% for post in posts %}
+    {% for profile in profile %}
     <div class="row">
         <div class="card mx-auto">
-            <img class="rounded-pill" src="{{post.profile_photo.url}}" alt="{{post.profile_photo}}">
+            <img class="rounded-pill" src="{{profile.profile_photo.url}}" alt="{{profile.profile_photo}}">
             <div class="card-body">
-                <p class="card-text">{{post.bio}}</p>
+                <h5>{{profile.bio}}</h5>
+                <h3>{{user.profile.id}}</h3>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .forms import NewImageForm
+from .forms import NewImageForm,NewProfileForm
 from .models import Image,Profile
 
 def welcome(request):
@@ -11,11 +11,6 @@ def welcome(request):
 def home(request):
     all_posts=Image.objects.all()
     return render(request,'home.html',{"posts":all_posts})
-
-@login_required(login_url='/accounts/login')
-def profile(request,profile_id):
-    my_profile=Profile.objects.filter(id=profile_id)
-    return render(request,'profile.html',{"profiles":my_profile})
 
 @login_required(login_url='/accounts/login')
 def search(request):
@@ -41,10 +36,15 @@ def update_profile(request):
     if request.method == 'POST':
         form = NewProfileForm(request.POST, request.FILES)
         if form.is_valid():
-            article=form.save(commit=False)
-            article.editor=current_user
-            article.save()
+            profile=form.save(commit=False)
+            profile.user=current_user
+            profile.save_profile()
         return redirect('home')
     else:
-        form=NewImageForm()
-    return render(request,'updateprofile.html',{"forma":form})
+        form=NewProfileForm()
+    return render(request,'updateprofile.html',{"form":form})
+
+@login_required(login_url='accounts/login')
+def profile(request,profile_id):
+    profile=Profile.objects.filter(id=profile_id)
+    return render(request,'profile.html',{"profile":profile})

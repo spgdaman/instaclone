@@ -32,6 +32,9 @@ class Image(models.Model):
 class Profile(models.Model):
     profile_photo=models.ImageField(upload_to='images/')
     bio=HTMLField()
+        
+    # Foreign key
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # Profile model methods
     @classmethod
