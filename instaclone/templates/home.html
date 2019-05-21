@@ -4,6 +4,12 @@
     {% for post in posts %}
     <div class="row">
         <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 mx-auto my-2" style="font-family: 'Open Sans', sans-serif; padding:0;">
+            <div class="card-header">
+                <div class="row">
+                    <img class="px-1" src="{{post.profile.profile_photo.url}}" alt="{{post.user}}" style="border-radius: 50%; width 35px; height:35px;">
+                    <a class="px-2 py-1 text-decoration-none" href="{% url 'profile' post.profile.id %}">{{post.user}}</a>
+                </div>
+            </div>
             <div class="card-header px-0 py-0">
                 <a href="{% url 'show_post' post.id %}"><img class="card-img-top" src="{{post.image.url}}" alt="{{post.image_name}}"></a>
             </div>
