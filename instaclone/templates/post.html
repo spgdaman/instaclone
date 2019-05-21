@@ -5,6 +5,11 @@
         {% for post in post %}
             <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-12 px-0">
                 <div class="card-body">
+                    {% if post.likes > 1 %}
+                    <small>{{post.likes}} Likes</small>
+                    {% else %}
+                    <small>{{post.likes}} Like</small>
+                    {% endif %}
                     <h3>{{post.image_name}}</h3>
                     <h5>{{post.image_caption}}</h5>
                 </div>
